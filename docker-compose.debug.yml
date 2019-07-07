@@ -1,0 +1,9 @@
+version: '2.1'
+
+services:
+  glek:
+    image: glek
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000

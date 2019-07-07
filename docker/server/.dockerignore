@@ -1,0 +1,9 @@
+.git
+.idea
+.logs
+.pytest_cache
+client
+tests
+venv
+*.pyc
+*.pyo
