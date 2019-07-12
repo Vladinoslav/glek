@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+import * as path from "./constants/routes"
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Login from "./pages/Login"
+import SignUp from "./pages/SignUp"
+import ForgotPassword from "./pages/ForgotPassword"
+import Home from "./pages/Home"
+
+ 
+
 
 function App() {
-  return (
+  return (<BrowserRouter>
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>Test</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Switch>
+        <Route exact path="/" component={props => <Home />} />
+        <Route exact path={path.LOGIN} component={props => <Login />} />
+        <Route exact path={path.SIGNUP} component={props => <SignUp />} />
+        <Route exact path={path.FORGOTPASSWORD} component={props => <ForgotPassword />} />
+
+
+      </Switch>
     </div>
+    </BrowserRouter>
+
   );
 }
 
