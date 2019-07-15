@@ -8,7 +8,6 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
-
 from accounts.serializers import UserRegisterSerializer, UserSerializer
 
 
@@ -40,4 +39,4 @@ class UserLoginView(GenericAPIView):
                 'user': self.get_serializer(request.user).data,
                 'token': token.key
             }, status=status.HTTP_200_OK)
-        return Response({}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({}, status=status.HTTP_400_BAD_REQUEST)

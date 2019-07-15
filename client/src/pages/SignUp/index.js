@@ -30,7 +30,7 @@ class SignUp extends React.Component {
     );
     console.log(data);
 
-    localStorage.setItem("userToken", data.data.token);
+    window.sessionStorage.setItem("userToken", data.data.token);
   };
   render() {
     return (

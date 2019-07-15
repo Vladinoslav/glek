@@ -30,7 +30,7 @@ class Login extends React.Component {
       "http://localhost:8000/accounts/login",
       this.state
     );
-    localStorage.setItem("userToken", data.data.token);
+    window.sessionStorage.setItem("userToken", data.data.token);
   };
   render() {
     return (
@@ -76,7 +76,7 @@ class Login extends React.Component {
                       className="mb-3"
                       onClick={this.signIn}
                     >
-                      Login
+                      <Link to={path.HELLO}>Login</Link>
                     </MDBBtn>
                   </div>
                 </form>
