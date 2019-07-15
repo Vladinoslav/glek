@@ -1,19 +1,18 @@
-version: '3.3'
+version: "3.3"
 
 services:
   database:
-    container_name: database
+    container_name: glek_database
     image: postgres:latest
     volumes:
       - ./initial.sql:/docker-entrypoint-initdb.d/initial.sql
-  
+
   server:
-    container_name: server
+    container_name: glek_server
     build:
       context: .
       dockerfile: ./docker/server/Dockerfile
-    working_dir:
-      /project/server
+    working_dir: /project/server
     env_file:
       - .env
     volumes:
@@ -23,15 +22,14 @@ services:
     user: 1000:1000
     depends_on:
       - database
-  
+
   client:
-    container_name: client
+    container_name: glek_client
     build:
       context: .
       dockerfile: ./docker/client/Dockerfile
     user: 1000:1000
-    working_dir:
-      /project/client
+    working_dir: /project/client
     env_file:
       - .env
     ports:
